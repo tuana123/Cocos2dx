@@ -98,10 +98,26 @@ Sprite * ResourceManager::GetSpriteByID(int id)
 
 ui::Button * ResourceManager::GetButtonByID(int id)
 {
+	std::map<int, ui::Button*>::iterator it;
+	for (it = this->m_buttons.begin(); it != this->m_buttons.end(); it++)
+	{
+		if (it->first == id)
+		{
+			return it->second;
+		}
+	}
 	return nullptr;
 }
 
 Label * ResourceManager::GetLabelByID(int id)
 {
+	std::map<int, Label*>::iterator it;
+	for (it = this->m_labels.begin(); it != this->m_labels.end(); it++)
+	{
+		if (it->first == id)
+		{
+			return it->second;
+		}
+	}
 	return nullptr;
 }
