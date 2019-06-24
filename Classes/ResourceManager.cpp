@@ -85,6 +85,14 @@ void ResourceManager::Load(std::string fileName)
 
 Sprite * ResourceManager::GetSpriteByID(int id)
 {
+	std::map<int, Sprite*>::iterator it;
+	for (it = this->m_sprites.begin(); it != this->m_sprites.end(); it++)
+	{
+		if (it->first == id)
+		{
+			return it->second;
+		}
+	}
 	return nullptr;
 }
 
