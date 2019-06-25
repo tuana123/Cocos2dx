@@ -6,7 +6,7 @@ USING_NS_CC;
 class Objectt
 {
 protected:
-	Scene *m_sprite;
+	Sprite *m_sprite;
 public:
 	Objectt();
 	virtual ~Objectt();
