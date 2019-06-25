@@ -40,6 +40,8 @@ void ResourceManager::Load(std::string fileName)
 			path_normal.replace(0, 2, this->m_dataFolderPath);
 
 			Sprite * sprite = Sprite::create(path_normal);
+			
+			sprite->retain();
 
 			m_sprites.insert(std::pair<int, Sprite*>(id, sprite));
 		}
