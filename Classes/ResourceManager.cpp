@@ -1,5 +1,6 @@
 #include "ResourceManager.h"
 #include <fstream>
+#include <string>
 
 ResourceManager *ResourceManager::m_resource = nullptr;
 
@@ -19,8 +20,11 @@ ResourceManager* ResourceManager::GetInstance()
 
 void ResourceManager::init(std::string path)
 {
-	this->m_dataFolderPath = path;	
-	this->Load("Data.bin");
+	this->m_dataFolderPath = path;
+
+	std::string filename = m_dataFolderPath + "Data.bin";
+
+	this->Load(filename);
 }
 
 void ResourceManager::Load(std::string fileName)
