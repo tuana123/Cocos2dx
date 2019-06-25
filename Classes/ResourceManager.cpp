@@ -1,7 +1,14 @@
 #include "ResourceManager.h"
 #include <fstream>
 
-ResourceManager * ResourceManager::GetInstance()
+ResourceManager *ResourceManager::m_resource = nullptr;
+
+ResourceManager::ResourceManager()
+{
+
+}
+
+ResourceManager* ResourceManager::GetInstance()
 {
 	if (m_resource == nullptr)
 	{
@@ -79,7 +86,7 @@ void ResourceManager::Load(std::string fileName)
 			path_normal.replace(0, 2, this->m_dataFolderPath);
 
 			Label *sprite = Label::createWithTTF("", path_normal, 20);
-
+			
 			m_labels.insert(std::pair<int, Label*>(id, sprite));
 		}
 	}
@@ -87,39 +94,18 @@ void ResourceManager::Load(std::string fileName)
 
 Sprite * ResourceManager::GetSpriteByID(int id)
 {
-	std::map<int, Sprite*>::iterator it;
-	for (it = this->m_sprites.begin(); it != this->m_sprites.end(); it++)
-	{
-		if (it->first == id)
-		{
-			return it->second;
-		}
-	}
-	return nullptr;
+	std::map<int, Sprite*>::iterator it = this->m_sprites.find(id);
+	return it->second;
 }
 
 ui::Button * ResourceManager::GetButtonByID(int id)
 {
-	std::map<int, ui::Button*>::iterator it;
-	for (it = this->m_buttons.begin(); it != this->m_buttons.end(); it++)
-	{
-		if (it->first == id)
-		{
-			return it->second;
-		}
-	}
-	return nullptr;
+	std::map<int, ui::Button*>::iterator it = this->m_buttons.find(id);
+	return it->second;
 }
 
 Label * ResourceManager::GetLabelByID(int id)
 {
-	std::map<int, Label*>::iterator it;
-	for (it = this->m_labels.begin(); it != this->m_labels.end(); it++)
-	{
-		if (it->first == id)
-		{
-			return it->second;
-		}
-	}
-	return nullptr;
+	std::map<int, Label*>::iterator it = this->m_labels.find(id);
+	return it->second;
 }

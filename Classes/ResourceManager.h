@@ -9,8 +9,8 @@ USING_NS_CC;
 class ResourceManager
 {
 private:
+	
 	static ResourceManager* m_resource;
-
 	ResourceManager();
 
 	std::string m_dataFolderPath;
@@ -20,7 +20,7 @@ private:
 	std::map <int, Label*> m_labels;
 
 public:
-
+	
 	static ResourceManager* GetInstance();
 	
 	void init(std::string path);
