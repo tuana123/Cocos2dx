@@ -7,6 +7,7 @@ Rock::Rock(Scene * scene)
 	this->m_sprite = ResourceManager::GetInstance()->GetSpriteByID(ID_ROCK);
 	float x = rand() % (int)(visibleSize.width + 1);
 	this->m_sprite->setPosition(x, visibleSize.height);
+	this->m_sprite->setVisible(false);
 	scene->addChild(m_sprite);
 }
 
@@ -24,5 +25,5 @@ void Rock::Update(float deltaTime)
 {
 	auto moveto = MoveTo::create(deltaTime, Vec2(this->m_sprite->getPosition().x, -10));
 	this->m_sprite->runAction(moveto);
-	this->m_sprite->release();
+	this->m_sprite->setVisible(false);
 }
