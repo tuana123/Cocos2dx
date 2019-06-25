@@ -3,6 +3,17 @@
 #include "ui/CocosGUI.h"
 #include <map>
 #include <string>
+#define ID_BACKGROUND 0
+#define ID_LOADINGBG 5
+#define ID_LOADINGPRO 6
+#define ID_LABEL 1
+#define ID_BULLET 2
+#define ID_ROCK 3
+#define ID_SPACESHIP 4
+#define ID_LOGO 1
+#define ID_BUTTON_PLAY 0
+#define ID_BUTTON_RESUM 1
+#define ID_BUTTON_HOME 2
 
 USING_NS_CC;
 
