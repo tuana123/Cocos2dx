@@ -73,6 +73,7 @@ void ResourceManager::Load(std::string fileName)
 			path_pressed.replace(0, 2, this->m_dataFolderPath);
 
 			ui::Button *sprite = ui::Button::create(path_normal, path_pressed);
+			sprite->retain();
 
 			m_buttons.insert(std::pair<int, ui::Button*>(id, sprite));
 		}
@@ -90,6 +91,7 @@ void ResourceManager::Load(std::string fileName)
 			path_normal.replace(0, 2, this->m_dataFolderPath);
 
 			Label *sprite = Label::createWithTTF("", path_normal, 20);
+			sprite->retain();
 			
 			m_labels.insert(std::pair<int, Label*>(id, sprite));
 		}

@@ -1,9 +1,5 @@
 #pragma once
 #include "cocos2d.h"
-#define ID_BACKGROUND 0
-#define ID_LOADINGBG 5
-#define ID_LOADINGPRO 6
-#define ID_LABEL 1
 
 USING_NS_CC;
 
