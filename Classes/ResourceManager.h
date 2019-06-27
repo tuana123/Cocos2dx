@@ -14,6 +14,8 @@
 #define ID_BUTTON_PLAY 0
 #define ID_BUTTON_RESUM 1
 #define ID_BUTTON_HOME 2
+#define MAX_BULLET 100
+#define MAX_ROCK 100
 
 USING_NS_CC;
 

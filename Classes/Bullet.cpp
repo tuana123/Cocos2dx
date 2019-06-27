@@ -3,8 +3,7 @@
 
 Bullet::Bullet(Scene* scene)
 {
-	this->m_sprite = ResourceManager::GetInstance()->GetSpriteByID(ID_BULLET);
-	this->m_sprite->setVisible(false);
+	this->Init();
 	scene->addChild(this->m_sprite);
 }
 
@@ -14,13 +13,19 @@ Bullet::~Bullet()
 
 void Bullet::Init()
 {
-	this->Update(0.5);
+	this->m_sprite = DuplicateSprite(ResourceManager::GetInstance()->GetSpriteByID(ID_BULLET));
+	this->m_sprite->setVisible(false);
 }
 
 void Bullet::Update(float deltaTime)
 {
-	auto moveby = MoveBy::create(deltaTime, Vec2(this->m_sprite->getPosition().x,
-		700));
-	this->m_sprite->runAction(moveby);
-	this->m_sprite->setVisible(false);
+	if (this->m_sprite->getPositionY() > Director::getInstance()->getVisibleSize().height)
+	{
+		m_sprite->setVisible(false);
+	}
+	else if (m_sprite->isVisible())
+	{
+		float y = m_sprite->getPositionY() + deltaTime * 500;
+		m_sprite->setPositionY(y);
+	}	
 }

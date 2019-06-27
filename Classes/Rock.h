@@ -9,7 +9,6 @@ class Rock :public Objectt
 public:
 	Rock(Scene* scene);
 	virtual ~Rock();
-
 	void Init();
 	void Update(float deltaTime) override;
 };

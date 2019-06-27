@@ -12,4 +12,7 @@ public:
 	virtual ~Objectt();
 	virtual void Update(float deltaTime) = 0;
 	virtual void Init() = 0;
+	Sprite* getSprite();
+	void setSprite(Sprite*);
+	Sprite * DuplicateSprite(Sprite * sprite);
 };
