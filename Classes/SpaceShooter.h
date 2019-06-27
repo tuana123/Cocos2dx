@@ -4,13 +4,14 @@
 #include <vector>
 #include "Rock.h"
 #include "Bullet.h"
+#include "GameOverScene.h"
 
 USING_NS_CC;
 
 class SpaceShooter :public Objectt
 {
 private:
-	std::list <Bullet*> m_bullets;
+	std::list <Objectt*> m_bullets;
 	Scene *scene;
 public:
 	SpaceShooter(Scene* scene);

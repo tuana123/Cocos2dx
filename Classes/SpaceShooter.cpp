@@ -7,6 +7,7 @@ SpaceShooter::SpaceShooter(Scene *scene)
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	this->m_sprite = ResourceManager::GetInstance()->GetSpriteByID(ID_SPACESHIP);
 	this->m_sprite->setPosition(visibleSize.width / 2, 0);
+	this->m_sprite->setScale(0.5);
 	scene->addChild(this->m_sprite);
 }
 
@@ -38,9 +39,7 @@ void SpaceShooter::Update(float deltaTime)
 	{
 		if (b->getSprite()->isVisible())
 		{
-			//b->getSprite()->setVisible(true);
 			b->Update(deltaTime);
-
 		}
 	}
 }
@@ -62,15 +61,24 @@ void SpaceShooter::Shoot()
 
 void SpaceShooter::Collision(std::vector<Rock*> vetor_rock)
 {
-	/*int count = 0;
+	int point = 0;
 
 	for (auto rock : vetor_rock)
 	{
-		Sprite* b = rock->getRock;
-		if(this->m_sprite->getBoundingBox().intersectsRect(b->getBoundingBox()))
+		Sprite* r = rock->getSprite();
+		if(this->m_sprite->getBoundingBox().intersectsRect(r->getBoundingBox()))
 		{
-
+			Director::getInstance()->replaceScene(GameOverScene::createScene());
 		}
-	}*/
-	
+		for (auto bullet : m_bullets)
+		{
+			Sprite* b = bullet->getSprite();
+			if (b->getBoundingBox().intersectsRect(r->getBoundingBox()))
+			{
+				bullet->getSprite()->setVisible(false);
+				r->setVisible(false);
+				++point;
+			}
+		}
+	}
 }
