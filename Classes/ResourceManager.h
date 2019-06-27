@@ -42,4 +42,6 @@ public:
 	Sprite* GetSpriteByID(int id);
 	ui::Button* GetButtonByID(int id);
 	Label* GetLabelByID(int id);
+
+	static int point;
 };

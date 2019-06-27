@@ -4,7 +4,7 @@
 #include <vector>
 #include "Rock.h"
 #include "Bullet.h"
-#include "GameOverScene.h"
+
 
 USING_NS_CC;
 

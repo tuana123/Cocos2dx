@@ -35,7 +35,9 @@ bool GamePlayScene::init()
 		Rock *rock = new Rock(this);
 		m_rock.push_back(rock);
 	}
-		
+	
+	ResourceManager::GetInstance()->point = 0;
+
 	this->scheduleUpdate();
 
 	return true;
@@ -61,6 +63,8 @@ void GamePlayScene::update(float deltaTime)
 			r->Update(deltaTime);
 		}
 	}
+
+	m_spaceship->Collision(m_rock);
 }
 
 void GamePlayScene::GenerateRock()
@@ -88,5 +92,9 @@ bool GamePlayScene::onTouchMove(Touch *t, Event * event)
 {
 	m_spaceship->getSprite()->setPosition(t->getLocation());
 	return true;
+}
+
+void GamePlayScene::onTouchEnded(Touch *, Event *)
+{
 }
 

@@ -12,7 +12,6 @@ class GamePlayScene :public Scene
 private:
 	std::vector <Rock*> m_rock;
 	SpaceShooter* m_spaceship = new SpaceShooter(this);
-	
 	float c = 0;
 
 public:
@@ -24,7 +23,7 @@ public:
 
 	bool onTouchBegan(Touch*,Event*);
 	bool onTouchMove(Touch*, Event*);
-	bool onTouchEnded(Touch*, Event*);
+	void onTouchEnded(Touch*, Event*);
 
 	CREATE_FUNC(GamePlayScene);
 };

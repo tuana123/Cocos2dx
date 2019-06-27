@@ -3,6 +3,7 @@
 #include <string>
 
 ResourceManager *ResourceManager::m_resource = nullptr;
+int ResourceManager::point = 0;
 
 ResourceManager::ResourceManager()
 {

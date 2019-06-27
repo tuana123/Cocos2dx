@@ -1,11 +1,10 @@
 #include "SpaceShooter.h"
-#include <Windows.h>
-
+#include "GameOverScene.h"
 SpaceShooter::SpaceShooter(Scene *scene)
 {
 	this->scene = scene;
 	auto visibleSize = Director::getInstance()->getVisibleSize();
-	this->m_sprite = ResourceManager::GetInstance()->GetSpriteByID(ID_SPACESHIP);
+	this->m_sprite = DuplicateSprite(ResourceManager::GetInstance()->GetSpriteByID(ID_SPACESHIP));
 	this->m_sprite->setPosition(visibleSize.width / 2, 0);
 	this->m_sprite->setScale(0.5);
 	scene->addChild(this->m_sprite);
@@ -61,8 +60,6 @@ void SpaceShooter::Shoot()
 
 void SpaceShooter::Collision(std::vector<Rock*> vetor_rock)
 {
-	int point = 0;
-
 	for (auto rock : vetor_rock)
 	{
 		Sprite* r = rock->getSprite();
@@ -77,7 +74,7 @@ void SpaceShooter::Collision(std::vector<Rock*> vetor_rock)
 			{
 				bullet->getSprite()->setVisible(false);
 				r->setVisible(false);
-				++point;
+				++ResourceManager::GetInstance()->point;
 			}
 		}
 	}
